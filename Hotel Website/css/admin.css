@@ -91,10 +91,12 @@ header{
 }
 .service a{
   margin: 15px;
-  padding: 15px;
-  color: black;
+  padding: 5px;
   text-align: center;
   text-decoration: none;
+  border-radius: 8px;
+  color: #312f2f;
+  background-color: whitesmoke;
 }
 .service a:hover{
   padding: 0 5px;
@@ -102,6 +104,7 @@ header{
   background-color: #818181;
   text-align: center;
   border-radius: 5px;
+  transition-duration: 0.5s;
 }
 
 .addroom{

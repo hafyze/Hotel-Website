@@ -22,7 +22,7 @@
 
     <div class="sidebar">
         <a href="#"><i class="fa fa-fw fa-home"></i> Home</a>
-        <a href="service.html"><i class="fa-solid fa-bed"></i> Services</a>
+        <a href="#"><i class="fa-solid fa-bed"></i> Services</a>
         <a href="#"><i class="fa fa-fw fa-user"></i> Staffs</a>
         <a href="#"><i class="fa-solid fa-user-tie"></i> Member</a>
         <a href="#"><i class="fa-solid fa-cart-shopping"></i> Order</a>
@@ -31,34 +31,15 @@
     <div class="main">
         <div id="admindash">
             <h1><i class="fa-solid fa-user"></i>Admin Dashboard</h1>
-            <h3 id="header3">Section</h3>
-            
+            <h2>Services</h2>
             <div class="service">
-                <h3>Services</h3>
-                <div class="row">
-                    <div class="column">
-                        <img class="img_responsive" src="img/standardRoom.jpg" alt="One bedroom ">
-                        <a href="">One Bedroom</a>
-                    </div>
-                    <div class="column">
-                        <img class="img_responsive" src="img/DeluxeRoom.jpg" alt="Two Bedroom1">
-                        <a href="">Two Bedroom</a>
-                    </div>
-                    <div class="column">
-                        <img class="img_responsive" src="img/suiteroom.jpg" alt="One bedroom ">
-                        <a href="">Executive Suite</a>
-                    </div>
-                </div>
+                <h2>Insert New Service</h2>
 
-            </div>
-            <div class="staffs">
-                <h4>Staffs</h4>
-            </div>
-            <div class="Member">
-                <h4>Members</h4>
-            </div>
-            <div class="order">
-                <h4>Orders</h4>
+                <form class="addroom" name="addfrm" method="post" action="php/add_movie.php">
+                    <p><label>Service: </label><input type="text" name="room_name" size="80">
+                    <p><label>Room Price:</label><input type="text" name="room_price" size="10">
+                    <p><input type="submit" name="savebtn" value="Save Room">
+                </form>
             </div>
         </div>
     </div>

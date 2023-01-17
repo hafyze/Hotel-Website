@@ -1,3 +1,7 @@
+*{
+  box-sizing: border-box;
+}
+
 body{
     color: black;
     background-color: rgb(46, 46, 143);
@@ -61,7 +65,7 @@ header{
   text-align: center;
 }
 
-/* */
+/*Service Section*/
 .service{
   text-align: center;
   border-radius: 6px;
@@ -80,12 +84,29 @@ header{
 .img_responsive{
   display: block;
   width: 100%;
-  max-width: 550px;
+  max-width: 650px;
   height: auto;
-  margin: auto;
+  margin: 5px auto;
+  border-radius: 9px;
 }
-figcaption a{
-  color: ;
+.service a{
+  margin: 15px;
+  padding: 15px;
+  color: black;
   text-align: center;
   text-decoration: none;
+}
+.service a:hover{
+  padding: 0 5px;
+  color: whitesmoke;
+  background-color: #818181;
+  text-align: center;
+  border-radius: 5px;
+}
+
+.addroom{
+  text-align: left;
+}
+.addroom p{
+  padding: 0 15px;
 }

@@ -1,7 +1,7 @@
 body{
     color: black;
     background-color: rgb(46, 46, 143);
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Montserrat', sans-serif;
 }
 
 header{
@@ -12,7 +12,7 @@ header{
     color: white;
     background-color: rgb(63, 63, 155);
     font-size: 30px;
-
+    font-family: 'Dancing Script', cursive;
     border-radius:7px;
 }
 
@@ -38,7 +38,10 @@ header{
 }
   
 .sidebar a:hover {
-  color: #f1f1f1;
+  color: black;
+  background-color: #f1f1f1;
+  border-radius: 8px;
+  transition-duration: 0.5s;
 }
   
 .main{
@@ -47,4 +50,16 @@ header{
   padding: 3px 10px;
   background-color:white;
   border-radius: 5px;
+}
+
+#admindash{
+  font-size: 20px;
+}
+#admindash i{
+  padding: 0 15px;
+}
+#header3{
+  font-size: 25px; 
+  text-align: center;
+
 }

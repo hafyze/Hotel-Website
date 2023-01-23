@@ -31,31 +31,57 @@
     <div class="main">
         <div id="admindash">
             <h1><i class="fa-solid fa-user"></i>Admin Dashboard</h1>
-            <h2>Room Details</h2>
+            <h2>Edit Room</h2>
 
                 <?php
-                include("dataconnection.php");
-
-                if(isset($_GET["roomid"])){
+                if (isset($_GET["edit"])) {
+                    include("dataconnection.php");
                     $roomid = $_GET["roomid"];
                     $query = "SELECT * FROM room WHERE 
                                 room_id = $roomid";
                     $result = mysqli_query($connection, $query);
                     $row = mysqli_fetch_assoc($result);
+                    ?>
 
-                    echo "<p>";
-                    echo "<br>ID: ";
-                    echo $row["room_id"];
-                    echo "<br>Room Name: ";
-                    echo $row["room_name"];
-                    echo "<br>Room Price: ";
-                    echo "RM".number_format($row["room_price"], 2);
-                    echo "<br>Room Sumary: ";
-                    echo $row["room_summary"];
-                    echo "</p>";
+                <form name= "editform" method="post" action>
+                    <p>Room Name :<input type="text" name="room_name" size="80" 
+                                        value="<?php echo $row["room_name"]; ?>"></p> 
+                    <p>Room Price:<input type="text" name="room_price" size="80" 
+                                        value="<?php echo $row["room_price"]; ?>"></p> 
+                    <p>Room Summary:<textarea row="5" col="60" name="room_summary"
+                                        value="<?php echo $row["room_summary"]; ?>"></textarea></p>   
+                    <p><input type="submit" name="updatebtn" value="Update room">               
+                </form>
+                <?php
+
                 }
                 ?>
         </div>
     </div>
 </body>
 </html>
+
+<?php 
+if(isset($_POST["updatebtn"])){
+
+    $roomName = $_POST["room_name"];
+    $roomPrice = $_POST["room_price"];
+    $roomSummary = $_POST["room_summary"];
+
+    $query = "UPDATE room SET 
+                room_name = '$roomName', 
+                room_price = '$roomPrice', 
+                room_summary = '$roomSummary'
+                WHERE room_id = $roomid";
+
+    $result = mysqli_query($connection, $query);
+?>
+<script>
+    alert("Room Successfully Updated");
+</script>
+
+<?php
+    header("Location: ../php/view_room.php");
+}
+
+?>

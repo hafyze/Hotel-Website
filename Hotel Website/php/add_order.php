@@ -13,6 +13,13 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
     <script src="js/index.js"></script>
+    <script>
+        
+        function totalPrice(){
+            let date = "<?php ?>";
+        }
+
+    </script>
 </head>
 
 <body>
@@ -31,32 +38,36 @@
     <div class="main">
         <div id="admindash">
             <h1><i class="fa-solid fa-user"></i>Admin Dashboard</h1>
-            <h2>Services</h2>
+            <h2>Orders</h2>
             <div class="service">
-                <h2>Insert New Room</h2>
+                <h2>Insert New Order</h2>
 
-                <form class="addroom" name="addfrm" method="post" action="php/add_room.php">
+                <form class="addroom" name="addfrm" method="post" action="../php/add_order.php">
                     <p>
                         <label for="room_name">Room Name: </label>
                         <input type="text" name="room_name" size="80"></p>
                     <p>
-                        <label for="room_price">Room Price:</label>
-                        <input type="text" name="room_price" size="10"></p>
+                        <label for="date_in">Check in date:</label>
+                        <input type="date" name="date_in"></p>
                     <p>
                     <p>
-                        <label for="room_summary">Room Summary:</label>
-                        <input type="text" name="room_summary" size="500"></p>
+                        <label for="date_out">Check out date:</label>
+                        <input type="date" name="date_out"></p>
+                        <p>
+                        <label for="room_price">Room Price (RM):</label>
+                        <input class="user_input" type="text" name="room_price" size="10"></p>
                     <p>
-                        <input type="submit" name="savebtn" value="Save Room">
+                    <p>
+                        <input type="submit" name="savebtn" value="Save Order">
                     </p>
                     <p>
-                        <a class="button_feature" href="view_room.php">View Lists</a>
+                        <a class="button_feature" href="view_order.php">View Lists</a>
                     </p>
                     <p>
-                        <a class="button_feature" href="delete_room.php">Delete Room</a>
+                        <a class="button_feature" href="delete_order.php">Delete Order</a>
                     </p>
                     <p>
-                        <a class="button_feature" href="update_room.php">Update Room</a>
+                        <a class="button_feature" href="edit_order.php">Edit Order</a>
                     </p>
                 </form>
             </div>
@@ -71,22 +82,28 @@
     //echo "Connection successful";
 
     $roomName = $_POST["room_name"];
-    $roomPrice = $_POST["room_price"];
-    $roomSummary = $_POST["room_summary"];
+    $checkIn = $_POST["date_in"];
+    $checkOut = $_POST["date_out"];
+    $room_price = $_POST["room_price"];
+    $format = "d/m/Y";
 
     if($connection->connect_error){
         die("Connection failed: " . $connection->connect_error);
     }else{
-        $sql = $connection->prepare("INSERT INTO room(room_name, room_price, room_summary)
-                VALUES(?, ?, ?)");
-        $sql->bind_param("sis", $roomName, $roomPrice, $roomSummary);
+
+        $date_in = new DateTime($checkIn);
+        $date_out = new DateTime( $checkOut);
+        $day_interval = $date_in->diff($date_out);
+        $total_days = $day_interval->days;
+        $totalPrice = $room_price * $total_days;
+        $sql = $connection->prepare("INSERT INTO room_order(room_name, date_in, date_out, total_price)
+                VALUES(?, ?, ?,?)");
+        $sql->bind_param("sssi", $roomName, $checkIn, $checkOut, $totalPrice);
         $sql->execute();
         //echo "Registration successul";
         $sql->close();
         $connection->close();
     }
 
-    
-
-    
+    header("Location: view_order.php");
 ?>

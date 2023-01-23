@@ -4,8 +4,9 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <link rel="stylesheet" type="text/css" href="../css/admin.css">
-    <link rel="stylesheet" type="text/css" href="../css/mobile.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="css/mobile.css">
+    <link rel="stylesheet" href="css/mobile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -21,7 +22,7 @@
     </header>
 
     <div class="sidebar">
-        <a href="../admin.html"><i class="fa fa-fw fa-home"></i> Admin</a>
+        <a href="admin.html"><i class="fa fa-fw fa-home"></i> Admin</a>
         <a href="#"><i class="fa-solid fa-bed"></i> Services</a>
         <a href="#"><i class="fa fa-fw fa-user"></i> Staffs</a>
         <a href="#"><i class="fa-solid fa-user-tie"></i> Member</a>
@@ -31,26 +32,28 @@
     <div class="main">
         <div id="admindash">
             <h1><i class="fa-solid fa-user"></i>Admin Dashboard</h1>
-            <h2>Services</h2>
+            <h2>Order</h2>
             <div class="service">
-                <h2>Insert New Room</h2>
+                <h2>Insert New Order</h2>
 
-                <form class="addroom" name="addfrm" method="post" action="php/add_room.php">
+                <form class="addroom" name="orderfrm" method="post" action="php/add_order.php">
                     <p>
                         <label for="room_name">Room Name: </label>
-                        <input type="text" name="room_name" size="80"></p>
+                        <input type="text" name="room_name" size="50"></p>
                     <p>
-                        <label for="room_price">Room Price:</label>
-                        <input type="text" name="room_price" size="10"></p>
+                        <label for="date_in">Check in date:</label>
+                        <input type="date" name="date_in"></p>
                     <p>
+                        <label for="date_out">Check out date:</label>
+                        <input type="date" name="date_out"></p>
                     <p>
-                        <label for="room_summary">Room Summary:</label>
-                        <input type="text" name="room_summary" size="500"></p>
+                        <label for="room_price">Room Price (RM):</label>
+                        <input class="user_input" type="text" name="room_price" size="10" style="width: 100px; height: 25px; margin: 10px 0;"></p>
                     <p>
-                        <input type="submit" name="savebtn" value="Save Room">
+                        <input type="submit" name="savebtn" value="Save Order">
                     </p>
                     <p>
-                        <a class="button_feature" href="view_room.php">View Lists</a>
+                        <a class="button_feature" href="php/view_order.php">View Lists</a>
                     </p>
                     <p>
                         <a class="button_feature" href="delete_room.php">Delete Room</a>
@@ -60,33 +63,11 @@
                     </p>
                 </form>
             </div>
+            <div class="price_helper">
+
+            </div>
         </div>
     </div>
 </body>
 
 </html>
-
-<?php
-    $connection = new mysqli("localhost", "root", "", "hotel");
-    //echo "Connection successful";
-
-    $roomName = $_POST["room_name"];
-    $roomPrice = $_POST["room_price"];
-    $roomSummary = $_POST["room_summary"];
-
-    if($connection->connect_error){
-        die("Connection failed: " . $connection->connect_error);
-    }else{
-        $sql = $connection->prepare("INSERT INTO room(room_name, room_price, room_summary)
-                VALUES(?, ?, ?)");
-        $sql->bind_param("sis", $roomName, $roomPrice, $roomSummary);
-        $sql->execute();
-        //echo "Registration successul";
-        $sql->close();
-        $connection->close();
-    }
-
-    
-
-    
-?>

@@ -12,8 +12,10 @@
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+
     <script src="js/index.js"></script>
     <script type="text/javascript">
         function confirmation(){
@@ -22,6 +24,7 @@
             answer = confirm("Do you want to delete the selected room? ");
             return answer;
         }
+
     </script>
 </head>
 
@@ -32,10 +35,10 @@
 
     <div class="sidebar">
         <a href="../admin.html"><i class="fa fa-fw fa-home"></i> Admin</a>
-        <a href="#"><i class="fa-solid fa-bed"></i> Services</a>
+        <a href="../service.html"><i class="fa-solid fa-bed"></i> Services</a>
         <a href="#"><i class="fa fa-fw fa-user"></i> Staffs</a>
         <a href="#"><i class="fa-solid fa-user-tie"></i> Member</a>
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i> Order</a>
+        <a href="../order.html"><i class="fa-solid fa-cart-shopping"></i> Order</a>
     </div>
 
     <div class="main">
@@ -44,15 +47,17 @@
             <h2>Room Lists</h2>
                 <table>
                     <tr>
-                        <th>Room ID</th>
+                        <th>Order ID</th>
                         <th>Room Name</th>
-                        <th>Room Price</th>
-                    </tr>
+                        <th>Check In Date</th>
+                        <th>Check Out Date</th>
+                        <th>Total Price</th>
+                     </tr>
 
                     <?php
                     include("dataconnection.php");
 
-                    $query = "SELECT * FROM room";
+                    $query = "SELECT * FROM room_order";
                     $result = mysqli_query($connection, $query);
                     $count = mysqli_num_rows($result);
 
@@ -62,12 +67,13 @@
                     ?>
                     
                     <tr>
-                        <td><?php echo $row["room_id"];?></td>
+                        <td><?php echo $row["order_id"];?></td>
                         <td><?php echo $row["room_name"];?></td>
-                        <td><?php echo $row["room_price"];?></td>
-                        <td><a href="../php/detail_room.php?view&roomid=<?php echo $row["room_id"]; ?>">More Details</a></td>
-                        <td><a href="../php/update_room.php?edit&roomid=<?php echo $row["room_id"]; ?>">Edit</a></td>
-                        <td><a href="../php/delete_room.php?del&roomid=<?php echo $row["room_id"]; ?>" onclick="return confirmation();">Delete</a></td>
+                        <td><?php echo $row["date_in"];?></td>
+                        <td><?php echo $row["date_out"];?></td>
+                        <td><?php echo $row["total_price"];?></td>
+                        <td><a href="../php/edit_order.php?edit&orderid=<?php echo $row["order_id"]; ?>">Edit</a></td>
+                        <td><a href="../php/delete_order.php?del&orderid=<?php echo $row["order_id"]; ?>" onclick="return confirmation();">Delete</a></td>
                     </tr>
                     <?php
 

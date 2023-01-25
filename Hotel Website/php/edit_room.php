@@ -25,7 +25,7 @@
         <a href="../service.html"><i class="fa-solid fa-bed"></i> Services</a>
         <a href="#"><i class="fa fa-fw fa-user"></i> Staffs</a>
         <a href="#"><i class="fa-solid fa-user-tie"></i> Member</a>
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i> Order</a>
+        <a href="../order.html"><i class="fa-solid fa-cart-shopping"></i> Order</a>
     </div>
 
     <div class="main">
@@ -49,7 +49,13 @@
                     <p>Room Price:<input type="text" name="room_price" size="80" 
                                         value="<?php echo $row["room_price"]; ?>"></p> 
                     <p>Room Summary:<textarea row="5" col="60" name="room_summary"
-                                        value="<?php echo $row["room_summary"]; ?>"></textarea></p>   
+                                        value="<?php echo $row["room_summary"]; ?>"></textarea></p>
+                    <p>Room Category:
+                        <select  name="room_category" style="width: 130px">
+                            <option value="Single">Single</option>
+                            <option value="Double">Double</option>
+                            <option value="Triple">Triple</option>
+                          </select></p>                       
                     <p><input type="submit" name="updatebtn" value="Update room">               
                 </form>
                 <?php

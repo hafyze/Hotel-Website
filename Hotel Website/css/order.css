@@ -1,40 +1,28 @@
-input .user_input{
-    width: 300px;
-}
-
-input[type=submit]{
-    margin: 15px;
-    padding: 5px;
-    text-align: center;
-    text-decoration: none;
-    border: none;
-    border-radius: 8px;
-    color: #312f2f;
-    background-color: whitesmoke;
-    text-decoration: none;
-}
-
-input[type=submit] :hover{
-    padding: 0 5px;
-    color: whitesmoke;
-    background-color: #818181;
-    text-align: center;
-    border-radius: 5px;
-    transition-duration: 0.5s;
-}
-
-.roomCategory{
-    position: relative;
-}
-
-select{
-    color: black;
-    margin: 0px 15px;
-    padding: 8px 16px;
+.table_guide{
+    margin: 0 auto;
+    padding: 3px 5px;
     border: 1px solid transparent;
-    border-radius: 9px;
-    border-color: transparent transparent rgba(0, 0, 0, 0.1) transparent;
-    cursor: pointer;
+    border-radius: 8px;
+    background-color: rgb(168, 199, 122);
+}
+h3{
+    width: fit-content;
+    margin: 5px auto;
+    padding: 2px 5px;
+    color: black;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    background-color: blanchedalmond;
+}
+
+#saveBtn:hover{
+    color: white;
+    padding: 3px 5px;
+    border:1px solid transparent;
+    border-radius: 5px;
+    text-decoration: none;
+    background-color: #33c257;
+    transition-duration: 0.5s;
 }
 
 th, td{
@@ -75,6 +63,7 @@ td a:hover{
     background-color: #5F8575;
     transition-duration: 0.5s;
 }
+
 #delete_order:hover{
     color: white;
     padding: 3px;

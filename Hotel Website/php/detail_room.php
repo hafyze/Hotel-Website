@@ -25,7 +25,7 @@
         <a href="../service.html"><i class="fa-solid fa-bed"></i> Services</a>
         <a href="#"><i class="fa fa-fw fa-user"></i> Staffs</a>
         <a href="#"><i class="fa-solid fa-user-tie"></i> Member</a>
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i> Order</a>
+        <a href="../order.html"><i class="fa-solid fa-cart-shopping"></i> Order</a>
     </div>
 
     <div class="main">
@@ -55,6 +55,7 @@
                     echo "</p>";
                 }
                 ?>
+                <a class="button_feature" href="view_room.php">View Lists</a>
         </div>
     </div>
 </body>

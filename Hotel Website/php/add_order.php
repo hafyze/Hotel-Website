@@ -64,7 +64,7 @@
                         <a class="button_feature" href="view_order.php">View Lists</a>
                     </p>
                     <p>
-                        <a class="button_feature" href="delete_order.php">Delete Order</a>
+                        <a id="delete_order" class="button_feature" href="delete_order.php">Delete Order</a>
                     </p>
                     <p>
                         <a class="button_feature" href="edit_order.php">Edit Order</a>

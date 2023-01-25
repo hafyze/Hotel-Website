@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="../css/admin.css" >
     <link rel="stylesheet" type="text/css" href="../css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="../css/order.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -44,7 +45,7 @@
     <div class="main">
         <div id="admindash">
             <h1><i class="fa-solid fa-user"></i>Admin Dashboard</h1>
-            <h2>Room Lists</h2>
+            <h2>Order Lists</h2>
                 <table>
                     <tr>
                         <th>Order ID</th>
@@ -73,7 +74,7 @@
                         <td><?php echo $row["date_out"];?></td>
                         <td><?php echo $row["total_price"];?></td>
                         <td><a href="../php/edit_order.php?edit&orderid=<?php echo $row["order_id"]; ?>">Edit</a></td>
-                        <td><a href="../php/delete_order.php?del&orderid=<?php echo $row["order_id"]; ?>" onclick="return confirmation();">Delete</a></td>
+                        <td><a id="delete_order" href="../php/delete_order.php?del&orderid=<?php echo $row["order_id"]; ?>" onclick="return confirmation();">Delete</a></td>
                     </tr>
                     <?php
 

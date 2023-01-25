@@ -8,6 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="../css/admin.css" >
     <link rel="stylesheet" type="text/css" href="../css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="../css/service.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -23,6 +24,10 @@
             return answer;
         }
     </script>
+
+    <style>
+        
+    </style>
 </head>
 
 <body>
@@ -32,10 +37,10 @@
 
     <div class="sidebar">
         <a href="../admin.html"><i class="fa fa-fw fa-home"></i> Admin</a>
-        <a href="#"><i class="fa-solid fa-bed"></i> Services</a>
+        <a href="../service.html"><i class="fa-solid fa-bed"></i> Services</a>
         <a href="#"><i class="fa fa-fw fa-user"></i> Staffs</a>
         <a href="#"><i class="fa-solid fa-user-tie"></i> Member</a>
-        <a href="#"><i class="fa-solid fa-cart-shopping"></i> Order</a>
+        <a href="../order.html"><i class="fa-solid fa-cart-shopping"></i> Order</a>
     </div>
 
     <div class="main">
@@ -47,6 +52,7 @@
                         <th>Room ID</th>
                         <th>Room Name</th>
                         <th>Room Price</th>
+                        <th>Room Category</th>
                     </tr>
 
                     <?php
@@ -64,7 +70,8 @@
                     <tr>
                         <td><?php echo $row["room_id"];?></td>
                         <td><?php echo $row["room_name"];?></td>
-                        <td><?php echo $row["room_price"];?></td>
+                        <td><?php echo "RM ". $row["room_price"];?></td>
+                        <td><?php echo $row["room_category"];?></td>
                         <td><a href="../php/detail_room.php?view&roomid=<?php echo $row["room_id"]; ?>">More Details</a></td>
                         <td><a href="../php/update_room.php?edit&roomid=<?php echo $row["room_id"]; ?>">Edit</a></td>
                         <td><a href="../php/delete_room.php?del&roomid=<?php echo $row["room_id"]; ?>" onclick="return confirmation();">Delete</a></td>
@@ -76,7 +83,8 @@
                     ?>
 
                 </table>
-
+                 <br>
+                <a id="add_room" class="button_feature" href="../service.html">Add Room</a>
                 <p>Number of lists : <?php echo $count; ?></p>
         </div>
     </div>

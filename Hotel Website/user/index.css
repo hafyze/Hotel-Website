@@ -113,11 +113,12 @@ section#registration {
 }
 
 section#registration form {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: left;
     padding: 2em;
 }
-
 section#registration label {
     display: block;
     margin-bottom: 0.5em;
@@ -146,11 +147,12 @@ section#login {
 }
 
 section#login form {
-    display: inline-block;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: left;
     padding: 2em;
 }
-
 section#login label {
     display: block;
     margin-bottom: 0.5em;

@@ -44,8 +44,8 @@
     <div class="sidebar">
         <a href="../admin.html"><i class="fa fa-fw fa-home"></i> Admin</a>
         <a href="../service.html"><i class="fa-solid fa-bed"></i> Services</a>
-        <a href="#"><i class="fa fa-fw fa-user"></i> Staffs</a>
-        <a href="#"><i class="fa-solid fa-user-tie"></i> Member</a>
+        <a href="../staffs.html"><i class="fa fa-fw fa-user"></i> Staffs</a>
+        <a href="../members.html"><i class="fa-solid fa-user-tie"></i> Member</a>
         <a href="../order.html"><i class="fa-solid fa-cart-shopping"></i> Order</a>
     </div>
 

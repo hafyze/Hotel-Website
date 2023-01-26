@@ -15,21 +15,25 @@
     <script src="js/index.js"></script>
 
     <style>
-        #view_list{
-            color: black;
-            padding: 3px;
-            border: 1px solid transparent;
-            border-radius: 5px;
-            background-color: #AFE1AF;
-            text-decoration: none;
+        #admindash p{
+            margin: 10px 10px;
         }
-        #view_list:hover{
-            color: white;
-            padding: 3px;
-            border: 1px solid transparent;
-            border-radius: 5px;
-            background-color: #5F8575;
+        #view_list {
+            margin: 5px;
+            padding: 5px;
+            text-align: center;
             text-decoration: none;
+            border-radius: 8px;
+            color: #312f2f;
+            background-color: whitesmoke;
+        }
+
+        #view_list:hover{
+            padding: 0 5px;
+            color: whitesmoke;
+            background-color: #818181;
+            text-align: center;
+            border-radius: 5px;
             transition-duration: 0.5s;
         }
     </style>
@@ -43,8 +47,8 @@
     <div class="sidebar">
         <a href="../admin.html"><i class="fa fa-fw fa-home"></i> Admin</a>
         <a href="../service.html"><i class="fa-solid fa-bed"></i> Services</a>
-        <a href="#"><i class="fa fa-fw fa-user"></i> Staffs</a>
-        <a href="#"><i class="fa-solid fa-user-tie"></i> Member</a>
+        <a href="../staffs.html"><i class="fa fa-fw fa-user"></i> Staffs</a>
+        <a href="../members.html"><i class="fa-solid fa-user-tie"></i> Member</a>
         <a href="../order.html"><i class="fa-solid fa-cart-shopping"></i> Order</a>
     </div>
 
@@ -66,13 +70,15 @@
                     echo "<p>";
                     echo "<br>ID: ";
                     echo $row["room_id"];
-                    echo "<br>Room Name: ";
+                    echo "<br><p>Room Name: ";
                     echo $row["room_name"];
-                    echo "<br>Room Price: ";
+                    echo "<br><p>Room Price: ";
                     echo "RM".number_format($row["room_price"], 2);
-                    echo "<br>Room Sumary: ";
+                    echo "<br><p>Room Category: ";
+                    echo $row["room_category"];
+                    echo "<br><p>Room Sumary: <br>";
                     echo $row["room_summary"];
-                    echo "</p>";
+                    echo "</p><br>";
                 }
                 ?>
                 <a id="view_list" class="button_feature" href="view_room.php">View Lists</a>

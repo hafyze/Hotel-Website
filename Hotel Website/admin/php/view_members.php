@@ -75,8 +75,8 @@
                         <td><?php echo $row["members_company"];?></td>
 						<td><?php echo $row["members_age"];?></td>
 						<td><?php echo $row["members_shvalue"];?></td>
-                        <td><a href="../php/update_staffs.php?edit&staffsid=<?php echo $row["members_id"]; ?>">Edit</a></td>
-                        <td><a href="../php/delete_staffs.php?del&staffsid=<?php echo $row["members_id"]; ?>" onclick="return confirmation();">Delete</a></td>
+                        <td><a href="../php/edit_members.php?edit&membersid=<?php echo $row["members_id"]; ?>">Edit</a></td>
+                        <td><a href="../php/delete_members.php?del&membersid=<?php echo $row["members_id"]; ?>" onclick="return confirmation();">Delete</a></td>
                     </tr>
                     <?php
 

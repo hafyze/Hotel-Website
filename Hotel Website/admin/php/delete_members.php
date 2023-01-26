@@ -32,8 +32,8 @@
     <div class="sidebar">
         <a href="../admin.html"><i class="fa fa-fw fa-home"></i> Admin</a>
         <a href="../service.html"><i class="fa-solid fa-bed"></i> Services</a>
-        <a href="#"><i class="fa fa-fw fa-user"></i> Staffs</a>
-        <a href="#"><i class="fa-solid fa-user-tie"></i> Member</a>
+        <a href="../staffs.html"><i class="fa fa-fw fa-user"></i> Staffs</a>
+        <a href="../members.html"><i class="fa-solid fa-user-tie"></i> Member</a>
         <a href="../order.html"><i class="fa-solid fa-cart-shopping"></i> Order</a>
     </div>
 
@@ -68,8 +68,8 @@
                         <td><?php echo $row["members_company"];?></td>
 						<td><?php echo $row["members_age"];?></td>
 						<td><?php echo $row["members_shvalue"];?></td>
-                        <td><a href="../php/update_members.php?edit&staffsid=<?php echo $row["members_id"]; ?>">Edit</a></td>
-                        <td><a href="../php/delete_members.php?del&staffsid=<?php echo $row["members_id"]; ?>" onclick="return confirmation();">Delete</a></td>
+                        <td><a href="../php/edit_members.php?edit&membersid=<?php echo $row["members_id"]; ?>">Edit</a></td>
+                        <td><a href="../php/delete_members.php?del&membersid=<?php echo $row["members_id"]; ?>" onclick="return confirmation();">Delete</a></td>
                     </tr>
                     <?php
 

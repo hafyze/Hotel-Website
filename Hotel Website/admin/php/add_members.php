@@ -63,7 +63,7 @@
             <div class="service">
                 <h2>Add New Members</h2>
 
-                <form class="addmembers" name="addmembers" method="post" action="php/add_members.php">
+                <form class="addmembers" name="addmembers" method="post" action="view_members.php">
                     <p>
                         <label for="members_name">Members Name: </label>
                         <input type="text" name="members_name" size="80"></p>

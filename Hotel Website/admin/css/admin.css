@@ -147,3 +147,24 @@ header{
   transition-duration: 0.5s;
 }
 
+#admindash p{
+  margin: 10px 10px;
+}
+#view_list {
+  margin: 5px;
+  padding: 5px;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 8px;
+  color: #312f2f;
+  background-color: whitesmoke;
+}
+
+#view_list:hover{
+  padding: 0 5px;
+  color: whitesmoke;
+  background-color: #818181;
+  text-align: center;
+  border-radius: 5px;
+  transition-duration: 0.5s;
+}

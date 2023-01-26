@@ -36,17 +36,17 @@
             <div class="members">
                 <h2>Add New Members</h2>
 
-                <form class="addmembers" name="addmembers" method="post" action="php/add_movie.php">
-                    <p><label>Members Name: </label><input type="text" name="staffs_name" size="80">
-					<p><label>Members id: </label><input type="text" name="staffs_id" size="10">
-					<p><label>Company: </label><input type="text" name="staffs_role" size="80">
-					<p><label>Members age: </label><input type="text" name="staffs_age" size="10">
-					<p><label>Shares Value: </label><input type="text" name="staffs_age" size="10">
+                <form class="addmembers" name="addmembers" method="post" action="php/add_members.php">
+                    <p><label>Members Name: </label><input type="text" name="members_name" size="80">
+					<p><label>Members id: </label><input type="text" name="members_id" size="10">
+					<p><label>Company: </label><input type="text" name="members_company" size="80">
+					<p><label>Members age: </label><input type="text" name="members_age" size="10">
+					<p><label>Shares Value: </label><input type="text" name="members_shvalue" size="10">
 					<div class="membersbtn">
                     <br><input type="submit" name="addbtn" value="Add">
-					<input type="submit" name="viewbtn" value="View">
-                    <input type="submit" name="delbtn" value="Delete">
-					<input type="submit" name="updatebtn" value="Edit Members">
+					<input type="submit" name="viewbtn" value="View" href="php/view_members.php">
+                    <input type="submit" name="delbtn" value="Delete" href="php/delete_members.php">
+					<input type="submit" name="updatebtn" value="Edit Members" href="php/edit_members.php">
                     </div>
 
                 </form>

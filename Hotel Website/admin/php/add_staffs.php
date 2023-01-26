@@ -63,7 +63,7 @@
             <div class="service">
                 <h2>Add New Staffs</h2>
 
-                <form class="addroom" name="addfrm" method="post" action="php/add_room.php">
+                <form class="addstaffs" name="addstaffs" method="post" action="php/add_room.php">
                     <p>
                         <label for="staffs_name">Staffs Name: </label>
                         <input type="text" name="staffs_name" size="80"></p>
@@ -86,11 +86,11 @@
                     
                         <input type="submit" name="addbtn" value="Add">
 
-                        <a class="button_feature" href="view_staffs.php">View Staffs</a>
+                        <a class="staffsbtn" href="view_staffs.php">View Staffs</a>
 
-                        <a class="button_feature" href="delete_staffs_php">Delete Staffs</a>
+                        <a class="staffsbtn" href="delete_staffs_php">Delete Staffs</a>
             
-                        <a class="button_feature" href="update_staffs.php">Update Staffs</a>
+                        <a class="staffsbtn" href="update_staffs.php">Update Staffs</a>
                     </p>
                 </form>
             </div>

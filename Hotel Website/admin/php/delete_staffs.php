@@ -90,7 +90,7 @@
 
 if(isset($_GET["del"])){
     $staffsid = $_GET["staffsid"];
-    $query = "DELETE FROM room WHERE
+    $query = "DELETE FROM staffs WHERE
                 staffs_id = $staffsid";
 
     mysqli_query($connection, $query);

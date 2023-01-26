@@ -51,8 +51,8 @@
     <div class="sidebar">
         <a href="../admin.html"><i class="fa fa-fw fa-home"></i> Admin</a>
         <a href="../service.html"><i class="fa-solid fa-bed"></i> Services</a>
-        <a href="#"><i class="fa fa-fw fa-user"></i> Staffs</a>
-        <a href="#"><i class="fa-solid fa-user-tie"></i> Member</a>
+        <a href="../staffs.html"><i class="fa fa-fw fa-user"></i> Staffs</a>
+        <a href="../members.html"><i class="fa-solid fa-user-tie"></i> Member</a>
         <a href="../order.html"><i class="fa-solid fa-cart-shopping"></i> Order</a>
     </div>
 
@@ -88,7 +88,7 @@
 
                         <a class="staffsbtn" href="view_staffs.php">View Staffs</a>
 
-                        <a class="staffsbtn" href="delete_staffs_php">Delete Staffs</a>
+                        <a class="staffsbtn" href="delete_staffs.php">Delete Staffs</a>
             
                         <a class="staffsbtn" href="update_staffs.php">Update Staffs</a>
                     </p>
@@ -116,7 +116,7 @@
     }else{
         $sql = $connection->prepare("INSERT INTO staffs(staffs_name, staffs_id, staffs_role, staffs_age, staffs_salary)
                 VALUES(?, ?, ?, ?, ?)");
-        $sql->bind_param("siss", $staffsName, $staffsId, $staffsRole, $staffsAge, $staffsSalary);
+        $sql->bind_param("sisii", $staffsName, $staffsId, $staffsRole, $staffsAge, $staffsSalary);
         $sql->execute();
         //echo "Registration successul";
         $sql->close();

@@ -23,8 +23,8 @@
     <div class="sidebar">
         <a href="../admin.html"><i class="fa fa-fw fa-home"></i> Admin</a>
         <a href="../service.html"><i class="fa-solid fa-bed"></i> Services</a>
-        <a href="#"><i class="fa fa-fw fa-user"></i> Staffs</a>
-        <a href="#"><i class="fa-solid fa-user-tie"></i> Member</a>
+        <a href="../staffs.html"><i class="fa fa-fw fa-user"></i> Staffs</a>
+        <a href="../members.html"><i class="fa-solid fa-user-tie"></i> Member</a>
         <a href="../order.html"><i class="fa-solid fa-cart-shopping"></i> Order</a>
     </div>
 
@@ -67,7 +67,7 @@
 </html>
 
 <?php 
-if(isset($_POST["updatebtn"])){
+if(isset($_POST["updatebtn"]))
 
     $staffsName = $_POST["staffs_name"];
     $staffsId = $_POST["staffs_id"];
@@ -75,14 +75,14 @@ if(isset($_POST["updatebtn"])){
 	$staffsAge = $_POST["staffs_age"];
 	$staffsSalary = $_POST["staffs_salary"];
 
-    $query = "UPDATE room SET 
+    $query = "UPDATE staffs SET 
                 staffs_name = '$staffsName', 
                 staffs_id = '$staffsId', 
                 staffs_role = '$staffsRole',
 				staffs_age = '$staffsAge',
 				staffs_salary = '$staffsSalary',
+                WHERE staffs_id = $staffsId";
                 
-
     $result = mysqli_query($connection, $query);
 ?>
 <script>
@@ -91,6 +91,6 @@ if(isset($_POST["updatebtn"])){
 
 <?php
     header("Location: ../php/view_staffs.php");
-}
+            
 
 ?>

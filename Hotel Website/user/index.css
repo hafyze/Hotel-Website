@@ -39,6 +39,7 @@ section {
     padding: 2em;
 }
 
+
 section#home {
     text-align: center;
 }
@@ -62,35 +63,49 @@ section#home button {
     margin-top: 1em;
 }
 
-section#rooms {
-    display: flex;
-    flex-wrap: wrap;
-}
-
-section#rooms .room {
-    flex: 1;
-    margin: 0 1em 1em 0;
+.center {
     text-align: center;
+	font-weight: lighter;
+	font-family: serif;
+	
 }
 
-section#rooms h3 {
-    font-size: 2em;
-    margin-top: 0;
+.rooms-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
 }
 
-section#rooms img {
-    max-width: 100%;
+.room {
+    width: 30%;
+    margin: 20px;
+    text-align: center;
+    padding: 20px;
+}
+
+.room img {
+    width: 100%;
     height: auto;
-    margin-bottom: 1em;
 }
 
-section#amenities {
-    text-align: left;
+.room h3 {
+    font-size: 2em
+
+.room p {
+    font-size: 1.2em;
+    line-height: 1.5;
+    text-align: justify;
+    margin: 10px 0;
 }
 
-section#amenities ul {
-    list-style-type: square;
-    margin-left: 2em;
+.room button {
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 10px;
 }
 
 section#registration {

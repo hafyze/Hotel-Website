@@ -1,3 +1,5 @@
+<?php include("dataconnection.php") ?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,22 +8,26 @@
 
     <link rel="stylesheet" type="text/css" href="../css/admin.css" >
     <link rel="stylesheet" type="text/css" href="../css/mobile.css">
+    <link rel="stylesheet" type="text/css" href="../css/Staffs.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
     
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Poppins:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
-    
+    <script src="js/index.js"></script>
     <script type="text/javascript">
         function confirmation(){
             let answer;
 
-            answer = confirm("Do you want to delete the selected staff? ");
+            answer = confirm("Do you want to delete the selected staffs? ");
             return answer;
         }
     </script>
 
+    <style>
+        
+    </style>
 </head>
 
 <body>
@@ -32,28 +38,29 @@
     <div class="sidebar">
         <a href="../admin.html"><i class="fa fa-fw fa-home"></i> Admin</a>
         <a href="../service.html"><i class="fa-solid fa-bed"></i> Services</a>
-        <a href="#"><i class="fa fa-fw fa-user"></i> Staffs</a>
-        <a href="#"><i class="fa-solid fa-user-tie"></i> Member</a>
+        <a href="../staffs.html"><i class="fa fa-fw fa-user"></i> Staffs</a>
+        <a href="../members.html"><i class="fa-solid fa-user-tie"></i> Member</a>
         <a href="../order.html"><i class="fa-solid fa-cart-shopping"></i> Order</a>
     </div>
 
     <div class="main">
         <div id="admindash">
             <h1><i class="fa-solid fa-user"></i>Admin Dashboard</h1>
-            <h2>Staffs Lists</h2>
+            <h2>Members Lists</h2>
                 <table>
                     <tr>
-                        <th>Staffs Name</th>
-                        <th>Staffs id</th>
-                        <th>Staffs role</th>
-						<th>Staffs age</th>
-						<th>Salary</th>
+                        <th>Members Name</th>
+                        <th>Members id</th>
+                        <th>Members Company</th>
+                        <th>Members Age</th>
+						<th>Shares Value</th>
+
                     </tr>
 
                     <?php
                     include("dataconnection.php");
 
-                    $query = "SELECT * FROM staffs";
+                    $query = "SELECT * FROM members";
                     $result = mysqli_query($connection, $query);
                     $count = mysqli_num_rows($result);
 
@@ -62,14 +69,14 @@
                         
                     ?>
                     
-                    <tr>
-                        <td><?php echo $row["staffs_name"];?></td>
-                        <td><?php echo $row["staffs_id"];?></td>
-                        <td><?php echo $row["staffs_role"];?></td>
-						<td><?php echo $row["staffs_age"];?></td>
-						<td><?php echo $row["staffs_salary"];?></td>
-                        <td><a href="../php/update_staffs.php?edit&staffsid=<?php echo $row["staffs_id"]; ?>">Edit</a></td>
-                        <td><a href="../php/delete_staffs.php?del&staffsid=<?php echo $row["staffs_id"]; ?>" onclick="return confirmation();">Delete</a></td>
+                     <tr>
+                        <td><?php echo $row["members_name"];?></td>
+                        <td><?php echo $row["members_id"];?></td>
+                        <td><?php echo $row["members_company"];?></td>
+						<td><?php echo $row["members_age"];?></td>
+						<td><?php echo $row["members_shvalue"];?></td>
+                        <td><a href="../php/update_staffs.php?edit&staffsid=<?php echo $row["members_id"]; ?>">Edit</a></td>
+                        <td><a href="../php/delete_staffs.php?del&staffsid=<?php echo $row["members_id"]; ?>" onclick="return confirmation();">Delete</a></td>
                     </tr>
                     <?php
 
@@ -78,24 +85,10 @@
                     ?>
 
                 </table>
-
+                 <br>
+                <a id="add_members" class="membersbtn" href="../members.html">Add Members</a>
                 <p>Number of lists : <?php echo $count; ?></p>
         </div>
     </div>
 </body>
 </html>
-
-<?php 
-
-if(isset($_GET["del"])){
-    $staffsid = $_GET["staffsid"];
-    $query = "DELETE FROM staffs WHERE
-                staffs_id = $staffsid";
-
-    mysqli_query($connection, $query);
-
-    // header("Refresh:0");
-}
-
-mysqli_close($connection);
-?>

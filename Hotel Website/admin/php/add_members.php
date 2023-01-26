@@ -6,7 +6,7 @@
 
     <link rel="stylesheet" type="text/css" href="../css/admin.css">
     <link rel="stylesheet" type="text/css" href="../css/mobile.css">
-    <link rel="stylesheet" type="text/css" href="../css/Staffs.css">
+    <link rel="stylesheet" type="text/css" href="../css/Members.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
 
     <style>
@@ -61,36 +61,36 @@
             <h1><i class="fa-solid fa-user"></i>Admin Dashboard</h1>
             <h2>Staffs</h2>
             <div class="service">
-                <h2>Add New Staffs</h2>
+                <h2>Add New Members</h2>
 
-                <form class="addstaffs" name="addstaffs" method="post" action="php/add_staffs.php">
+                <form class="addmembers" name="addmembers" method="post" action="php/add_members.php">
                     <p>
-                        <label for="staffs_name">Staffs Name: </label>
-                        <input type="text" name="staffs_name" size="80"></p>
+                        <label for="members_name">Members Name: </label>
+                        <input type="text" name="members_name" size="80"></p>
                     <p>
-                        <label for="staffs_id">Staffs id:</label>
-                        <input type="text" name="staffs_id" size="10"></p>
-                    <p>
-					<p>
-                        <label for="staffs_role">Staffs Role: </label>
-                        <input type="text" name="staffs_role" size="80"></p>
+                        <label for="members_id">Members id:</label>
+                        <input type="text" name="members_id" size="10"></p>
                     <p>
 					<p>
-                        <label for="staffs_age">Staffs Age: </label>
-                        <input type="text" name="staffs_age" size="10"></p>
+                        <label for="members_company">Members Company: </label>
+                        <input type="text" name="members_company" size="80"></p>
                     <p>
 					<p>
-                        <label for="staffs_salary">Salary: </label>
-                        <input type="text" name="staffs_salary" size="10"></p>
+                        <label for="members_age">Members Age: </label>
+                        <input type="text" name="members_age" size="10"></p>
+                    <p>
+					<p>
+                        <label for="members_shvalue">Shares Value: </label>
+                        <input type="text" name="members_shvalue" size="10"></p>
                     
                     
                         <input type="submit" name="addbtn" value="Add">
 
-                        <a class="staffsbtn" href="view_staffs.php">View Staffs</a>
+                        <a class="membersbtn" href="view_members.php">View Members</a>
 
-                        <a class="staffsbtn" href="delete_staffs.php">Delete Staffs</a>
+                        <a class="membersbtn" href="delete_members.php">Delete Members</a>
             
-                        <a class="staffsbtn" href="update_staffs.php">Update Staffs</a>
+                        <a class="membersbtn" href="update_members.php">Update Members</a>
                     </p>
                 </form>
             </div>
@@ -104,19 +104,19 @@
     $connection = new mysqli("localhost", "root", "", "hotel");
     //echo "Connection successful";
 
-    $staffsName = $_POST["staffs_name"];
-    $staffsId = $_POST["staffs_id"];
-    $staffsRole = $_POST["staffs_role"];
-    $staffsAge = $_POST["staffs_age"];
-	$staffsSalary = $_POST["staffs_salary"];
+    $membersName = $_POST["members_name"];
+    $membersId = $_POST["members_id"];
+    $membersCompany = $_POST["members_company"];
+    $membersAge = $_POST["members_age"];
+	$membersShvalue = $_POST["members_shvalue"];
 
 
     if($connection->connect_error){
         die("Connection failed: " . $connection->connect_error);
     }else{
-        $sql = $connection->prepare("INSERT INTO staffs(staffs_name, staffs_id, staffs_role, staffs_age, staffs_salary)
+        $sql = $connection->prepare("INSERT INTO members(members_name, members_id, members_company, members_age, members_shvalue)
                 VALUES(?, ?, ?, ?, ?)");
-        $sql->bind_param("sisii", $staffsName, $staffsId, $staffsRole, $staffsAge, $staffsSalary);
+        $sql->bind_param("sisii", $membersName, $membersId, $membersCompany, $membersAge, $membersShvalue);
         $sql->execute();
         //echo "Registration successul";
         $sql->close();

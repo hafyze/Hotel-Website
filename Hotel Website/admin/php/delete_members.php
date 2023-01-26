@@ -17,7 +17,7 @@
         function confirmation(){
             let answer;
 
-            answer = confirm("Do you want to delete the selected staff? ");
+            answer = confirm("Do you want to delete the selected members? ");
             return answer;
         }
     </script>
@@ -40,20 +40,20 @@
     <div class="main">
         <div id="admindash">
             <h1><i class="fa-solid fa-user"></i>Admin Dashboard</h1>
-            <h2>Staffs Lists</h2>
+            <h2>Members Lists</h2>
                 <table>
                     <tr>
-                        <th>Staffs Name</th>
-                        <th>Staffs id</th>
-                        <th>Staffs role</th>
-						<th>Staffs age</th>
-						<th>Salary</th>
+                        <th>Members Name</th>
+                        <th>Members id</th>
+                        <th>Members Company</th>
+						<th>Members age</th>
+						<th>Shares Value</th>
                     </tr>
 
                     <?php
                     include("dataconnection.php");
 
-                    $query = "SELECT * FROM staffs";
+                    $query = "SELECT * FROM members";
                     $result = mysqli_query($connection, $query);
                     $count = mysqli_num_rows($result);
 
@@ -63,13 +63,13 @@
                     ?>
                     
                     <tr>
-                        <td><?php echo $row["staffs_name"];?></td>
-                        <td><?php echo $row["staffs_id"];?></td>
-                        <td><?php echo $row["staffs_role"];?></td>
-						<td><?php echo $row["staffs_age"];?></td>
-						<td><?php echo $row["staffs_salary"];?></td>
-                        <td><a href="../php/update_staffs.php?edit&staffsid=<?php echo $row["staffs_id"]; ?>">Edit</a></td>
-                        <td><a href="../php/delete_staffs.php?del&staffsid=<?php echo $row["staffs_id"]; ?>" onclick="return confirmation();">Delete</a></td>
+                        <td><?php echo $row["members_name"];?></td>
+                        <td><?php echo $row["members_id"];?></td>
+                        <td><?php echo $row["members_company"];?></td>
+						<td><?php echo $row["members_age"];?></td>
+						<td><?php echo $row["members_shvalue"];?></td>
+                        <td><a href="../php/update_members.php?edit&staffsid=<?php echo $row["members_id"]; ?>">Edit</a></td>
+                        <td><a href="../php/delete_members.php?del&staffsid=<?php echo $row["members_id"]; ?>" onclick="return confirmation();">Delete</a></td>
                     </tr>
                     <?php
 
@@ -88,9 +88,9 @@
 <?php 
 
 if(isset($_GET["del"])){
-    $staffsid = $_GET["staffsid"];
-    $query = "DELETE FROM staffs WHERE
-                staffs_id = $staffsid";
+    $membersid = $_GET["membersid"];
+    $query = "DELETE FROM members WHERE
+                members_id = $membersid";
 
     mysqli_query($connection, $query);
 

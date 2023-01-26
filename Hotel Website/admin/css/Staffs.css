@@ -1,4 +1,11 @@
 /*staff pages*/
+
+.staffs{
+	text-align: center;
+  border-radius: 6px;
+  background-color: rgb(194, 212, 226);
+}
+
 .addstaffs{
   text-align: left;
 }
